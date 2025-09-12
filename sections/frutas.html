@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/frutas.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <title>FRUTAS</title>
+</head>
+<body>
+
+    <nav>
+        <a href="../sections/menu.html"><button>Inicio</button></a>
+        <a href="../sections/verduras.html"><button>Verduras <i class="bi bi-basket"></i></button></a>
+        <a href="../sections/carrito.html"><button>Carrito <i class="bi bi-cart4"></i></button></a>
+    </nav>
+    
+    <section id="frutas">
+        <h2>FRUTAS</h2>
+    
+        <article>
+            <h3>Cítricos</h3>
+        
+            <div class="producto">
+                <img src="../img/frutas/citricos/naranja.jpg" alt="Naranja">
+                <p><strong>Naranja</strong><br>
+                Rica en vitamina C, fortalece el sistema inmune y es ideal para jugos. 
+                Precio: $3.000/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Naranja" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Naranja">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Naranja', 3000, document.getElementById('cant-Naranja').value, document.getElementById('unidad-Naranja').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/citricos/lima.jpg" alt="Lima">
+                <p><strong>Lima</strong><br>
+                Refrescante, con alto contenido de vitamina C, perfecta para jugos y cocteles. 
+                Precio: $2.500/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Lima" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Lima">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Lima', 2500, document.getElementById('cant-Lima').value, document.getElementById('unidad-Lima').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/citricos/limon.jpg" alt="Limón">
+                <p><strong>Limón</strong><br>
+                Antioxidante natural, ayuda a la digestión y aporta vitamina C. 
+                Precio: $2.000/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Limon" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Limon">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Limón', 2000, document.getElementById('cant-Limon').value, document.getElementById('unidad-Limon').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/citricos/mandarina.jpg" alt="Mandarina">
+                <p><strong>Mandarina</strong><br>
+                Dulce y jugosa, fuente de vitamina A y C, ideal como snack saludable. 
+                Precio: $3.500/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Mandarina" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Mandarina">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Mandarina', 3500, document.getElementById('cant-Mandarina').value, document.getElementById('unidad-Mandarina').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/citricos/pomelo_rosa.jpg" alt="Pomelo Rosa">
+                <p><strong>Pomelo Rosa</strong><br>
+                Rico en antioxidantes y fibra, regula el colesterol y favorece la digestión. 
+                Precio: $3.500/kg</p>
+                <label>Cantidad: <input type="number" id="cant-PomeloRosa" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-PomeloRosa">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Pomelo Rosa', 3500, document.getElementById('cant-PomeloRosa').value, document.getElementById('unidad-PomeloRosa').value)">Agregar</button>
+            </div>
+        </article>       
+    
+        <article>
+            <h3>Frutos de hueso</h3>
+        
+            <div class="producto">
+                <img src="../img/frutas/frutas de hueso/aguacate.jpg" alt="Aguacate">
+                <p><strong>Aguacate</strong><br>
+                Fruta cremosa y nutritiva, rica en grasas saludables, vitamina E y potasio. 
+                Precio: $6.000/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Aguacate" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Aguacate">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Aguacate', 6000, document.getElementById('cant-Aguacate').value, document.getElementById('unidad-Aguacate').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/frutas de hueso/cereza.jpg" alt="Cereza">
+                <p><strong>Cereza</strong><br>
+                Rica en vitamina A y C, antioxidantes naturales que protegen el corazón. 
+                Precio: $40.000/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Cereza" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Cereza">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Cereza', 40000, document.getElementById('cant-Cereza').value, document.getElementById('unidad-Cereza').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/frutas de hueso/ciruela.jpg" alt="Ciruela">
+                <p><strong>Ciruela</strong><br>
+                Contiene vitamina K y C, favorece la digestión y ayuda a regular el tránsito intestinal. 
+                Precio: $5.000/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Ciruela" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Ciruela">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Ciruela', 5000, document.getElementById('cant-Ciruela').value, document.getElementById('unidad-Ciruela').value)">Agregar</button>
+            </div>
+            
+            <div class="producto">
+                <img src="../img/frutas/frutas de hueso/durazno.jpg" alt="Durazno">
+                <p><strong>Durazno</strong><br>
+                Aporta vitamina A y C, se consume fresco, en jugos, mermeladas y repostería. 
+                Precio: $4.500/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Durazno" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Durazno">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Durazno', 4500, document.getElementById('cant-Durazno').value, document.getElementById('unidad-Durazno').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/frutas de hueso/nectarina.jpg" alt="Nectarina">
+                <p><strong>Nectarina</strong><br>
+                Similar al durazno, rica en vitamina A y C, ideal en ensaladas de frutas y postres. 
+                Precio: $4.000/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Nectarina" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Nectarina">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Nectarina', 4000, document.getElementById('cant-Nectarina').value, document.getElementById('unidad-Nectarina').value)">Agregar</button>
+            </div>
+        </article>
+
+        <article>
+            <h3>Frutos rojos</h3>
+            
+            <div class="producto">
+                <img src="../img/frutas/frutos rojos/arandano.jpg" alt="Arándano">
+                <p><strong>Arándano</strong><br>
+                Rico en antioxidantes, vitamina C y fibra. Mejora la memoria y fortalece el sistema inmune. 
+                Precio: $50.000/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Arandano" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Arandano">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Arándano', 50000, document.getElementById('cant-Arandano').value, document.getElementById('unidad-Arandano').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/frutos rojos/frambuesa.jpg" alt="Frambuesa">
+                <p><strong>Frambuesa</strong><br>
+                Alta en vitamina C y magnesio. Favorece la digestión y ayuda a controlar el azúcar en la sangre. 
+                Precio: $45.000/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Frambuesa" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Frambuesa">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Frambuesa', 45000, document.getElementById('cant-Frambuesa').value, document.getElementById('unidad-Frambuesa').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/frutos rojos/fresa.jpg" alt="Fresa">
+                <p><strong>Fresa</strong><br>
+                Contiene vitamina C, ácido fólico y antioxidantes. Beneficia la piel, corazón y sistema inmune. 
+                Precio: $7.000/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Fresa" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Fresa">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Fresa', 7000, document.getElementById('cant-Fresa').value, document.getElementById('unidad-Fresa').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/frutos rojos/mora.jpg" alt="Mora">
+                <p><strong>Mora</strong><br>
+                Rica en vitamina A, C y K. Fortalece los huesos y tiene propiedades antiinflamatorias. 
+                Precio: $6.000/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Mora" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Mora">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Mora', 6000, document.getElementById('cant-Mora').value, document.getElementById('unidad-Mora').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/frutos rojos/uva.jpg" alt="Uva">
+                <p><strong>Uva</strong><br>
+                Aporta resveratrol, vitamina K y antioxidantes. Favorece la circulación y la salud del corazón. 
+                Precio: $9.000/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Uva" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Uva">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Uva', 9000, document.getElementById('cant-Uva').value, document.getElementById('unidad-Uva').value)">Agregar</button>
+            </div>
+        </article>
+        
+        <article>
+            <h3>Frutas tropicales</h3>
+        
+            <div class="producto">
+                <img src="../img/frutas/tropicales/bananno.jpg" alt="Banano">
+                <p><strong>Banano</strong><br>
+                Rico en potasio, magnesio y vitamina B6. Aporta energía rápida, favorece la digestión y ayuda a la recuperación muscular. 
+                Precio: $3.000/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Banano" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Banano">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Banano', 3000, document.getElementById('cant-Banano').value, document.getElementById('unidad-Banano').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/tropicales/mango.jpg" alt="Mango">
+                <p><strong>Mango</strong><br>
+                Contiene vitamina A, vitamina C y antioxidantes. Mejora la digestión, fortalece el sistema inmune y protege la piel. 
+                Precio: $5.000/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Mango" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Mango">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Mango', 5000, document.getElementById('cant-Mango').value, document.getElementById('unidad-Mango').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/tropicales/maracuya.jpg" alt="Maracuyá">
+                <p><strong>Maracuyá</strong><br>
+                Fuente de vitamina C, fibra y antioxidantes. Tiene efecto relajante natural y mejora la salud digestiva. 
+                Precio: $4.500/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Maracuya" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Maracuya">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Maracuyá', 4500, document.getElementById('cant-Maracuya').value, document.getElementById('unidad-Maracuya').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/tropicales/papaya.jpg" alt="Papaya">
+                <p><strong>Papaya</strong><br>
+                Rica en vitamina A, vitamina C y enzimas digestivas (papaína). Mejora la digestión, protege la vista y fortalece el sistema inmune. 
+                Precio: $3.500/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Papaya" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Papaya">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Papaya', 3500, document.getElementById('cant-Papaya').value, document.getElementById('unidad-Papaya').value)">Agregar</button>
+            </div>
+        
+            <div class="producto">
+                <img src="../img/frutas/tropicales/piña.jpg" alt="Piña">
+                <p><strong>Piña</strong><br>
+                Contiene vitamina C y bromelina, favorece la digestión, es antiinflamatoria y fortalece el sistema inmunológico. 
+                Precio: $4.000/kg</p>
+                <label>Cantidad: <input type="number" id="cant-Pina" value="1" min="1"></label>
+                <label>Unidad:
+                    <select id="unidad-Pina">
+                        <option value="kg">Kg</option>
+                        <option value="lb">Lb</option>
+                    </select>
+                </label>
+                <button onclick="AgregarCarrito('Piña', 4000, document.getElementById('cant-Pina').value, document.getElementById('unidad-Pina').value)">Agregar</button>
+            </div>
+        </article>
+        
+    </section> 
+
+    <nav>
+        <a href="../sections/menu.html"><button>Inicio</button></a>
+        <a href="../sections/verduras.html"><button>Verduras <i class="bi bi-basket"></i></button></a>
+        <a href="../sections/carrito.html"><button>Carrito <i class="bi bi-cart4"></i></button></a>
+    </nav>
+      
+
+    <script src="../js/carrito.js"></script>
+</body>
+</html>

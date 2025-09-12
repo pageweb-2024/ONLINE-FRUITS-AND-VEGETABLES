@@ -6,44 +6,7 @@ body {
     color: #333;
 }
 
-header {
-    background: #28a745;
-    color: white;
-    top: 0;
-    padding: 1rem 2rem;
-    text-align: center;
-    position: sticky;
-    z-index: 1000;
-}
 
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-nav ul li {
-    margin: 0 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #ffe066;
-}
 
 section {
     padding: 4.5rem;
@@ -67,54 +30,33 @@ section {
     margin: auto;
 } 
 
-/*secciones frutas y verduras*/
-
-#frutas, #verduras{
-    padding: 90px;
-    margin-top: 50px;
-    background: #f4f4f4;
-    border-radius: 12px;
-    box-shadow: 4px 4px 40px rgba(0, 229, 53, 0.772);
-}
-
-section h2{
-    color: #28a745;
+/*boton de menu*/
+.btn-container {
     text-align: center;
-    font-size: 4rem;
-    border-bottom: 5px solid #ddd;
-    padding-bottom: 0.5rem;
+    margin-top: 30px;
 }
-
-h3{
-    color: #333;  
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 1rem;
-    padding-left: 10px;
-    border-bottom: 2px solid #ddd;  
-}
-
-/*productos*/
-
-.producto{
+  
+.btn {
     display: inline-block;
-    vertical-align: top;
-    width: 250px;
-    margin: 15px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    background-color: #fafafa;
-    text-align: center;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-    transition: transform 0.2s, box-shadow 0.2s;
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: #fff;
+    padding: 14px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
- 
-.producto:hover{
-    transform: translateY(-6px);
-    box-shadow: 2px 6px 14px rgba(0,0,0,0.12);
+  
+.btn:hover {
+    background: linear-gradient(135deg, #34ce57, #28a745);
+    transform: scale(1.05);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
+  
 
-.producto img{
-    
+.btn i {
+    margin-left: 8px;
 }
