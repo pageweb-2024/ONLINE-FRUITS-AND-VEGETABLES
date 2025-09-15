@@ -131,3 +131,74 @@ nav button:hover {
     background: #a5e600;
     transform: scale(1.05);
 }
+
+
+/*RESPONSIVE DESIGN*/
+
+/* Celulares pequeños (≤ 576px) */
+@media (max-width: 576px) {
+    #frutas, #verduras {
+        padding: 30px 15px;
+        margin-top: 20px;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .producto {
+        width: 100%;
+        margin: 10px 0;
+        padding: 15px;
+    }
+
+    .producto img {
+        height: 150px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav button {
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+/* Tablets (577px – 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    #frutas, #verduras {
+        padding: 50px 25px;
+    }
+
+    section h2 {
+        font-size: 3rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    .producto {
+        width: 45%;
+        margin: 10px auto;
+    }
+
+    .producto img {
+        height: 160px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+    }
+
+    nav button {
+        font-size: 15px;
+    }
+}

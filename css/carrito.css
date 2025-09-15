@@ -98,3 +98,86 @@ nav button:hover {
     background: #a5e600;
     transform: scale(1.05);
 }
+
+/*RESPONSIVE DESIGN*/
+
+/* Celulares pequeños (≤ 576px) */
+@media (max-width: 576px) {
+    #carrito {
+        margin: 20px auto;
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    #carrito h2 {
+        font-size: 1.6rem;
+    }
+
+    #carrito h3 {
+        font-size: 1.2rem;
+    }
+
+    #tabla-carrito {
+        font-size: 0.85rem;
+    }
+
+    #tabla-carrito th, 
+    #tabla-carrito td {
+        padding: 8px;
+    }
+
+    #carrito button {
+        width: 100%;
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav button {
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+/* Tablets (577px – 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    #carrito {
+        margin: 30px auto;
+        padding: 25px;
+        max-width: 95%;
+    }
+
+    #carrito h2 {
+        font-size: 2rem;
+    }
+
+    #carrito h3 {
+        font-size: 1.3rem;
+    }
+
+    #tabla-carrito {
+        font-size: 0.95rem;
+    }
+
+    #tabla-carrito th, 
+    #tabla-carrito td {
+        padding: 10px;
+    }
+
+    #carrito button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+    }
+
+    nav button {
+        font-size: 15px;
+    }
+}
