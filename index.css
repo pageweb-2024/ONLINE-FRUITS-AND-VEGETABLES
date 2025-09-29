@@ -1,12 +1,13 @@
+/* ================== ESTILOS BASE ================== */
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f8f9fa;
+    background: linear-gradient(270deg, #f8f9fa, #e9f7ef, #f8f9fa);
+    background-size: 600% 600%;
+    animation: backgroundMove 15s ease infinite;
     color: #333;
 }
-
-
 
 section {
     padding: 4.5rem;
@@ -14,23 +15,32 @@ section {
     margin: auto;
 }
 
+/* ================== TÍTULO ================== */
 .titulo {
     text-align: center;
     color: #28a745;
     margin-bottom: 1.5rem;
     font-size: 8rem;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInDown 1.2s ease forwards;
 }
 
-.texto{
+/* ================== TEXTO ================== */
+.texto {
     font-size: 1.2rem;
     line-height: 1.8;
     color: #333;
     text-align: center;
     max-width: 800px;
     margin: auto;
-} 
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s ease forwards;
+    animation-delay: 0.6s;
+}
 
-/*boton de menu*/
+/* ================== BOTÓN ================== */
 .btn-container {
     text-align: center;
     margin-top: 30px;
@@ -48,20 +58,62 @@ section {
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    animation: pulse 2s infinite;
 }
   
 .btn:hover {
     background: linear-gradient(135deg, #34ce57, #28a745);
-    transform: scale(1.05);
+    transform: scale(1.08);
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    animation: glow 0.8s ease infinite alternate;
 }
-  
 
 .btn i {
     margin-left: 8px;
 }
 
-/*RESPONSIVE DESIGN*/
+/* ================== ANIMACIONES ================== */
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.07);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 8px 18px rgba(40, 167, 69, 0.4);
+    }
+    to {
+        box-shadow: 0 12px 25px rgba(40, 167, 69, 0.7);
+    }
+}
+
+@keyframes backgroundMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ================== RESPONSIVE DESIGN ================== */
 
 /* Celulares pequeños (≤ 576px) */
 @media (max-width: 576px) {

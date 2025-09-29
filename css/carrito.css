@@ -1,3 +1,6 @@
+/* ===============================
+   SECCIÓN DEL CARRITO
+================================ */
 #carrito {
     margin: 50px auto;
     padding: 30px;
@@ -7,6 +10,13 @@
     box-shadow: 0px 4px 20px rgba(0, 200, 100, 0.25);
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 #carrito h2 {
@@ -15,6 +25,7 @@
     margin-bottom: 20px;
     border-bottom: 3px solid #28a745;
     padding-bottom: 8px;
+    animation: pop 0.8s ease;
 }
 
 #carrito h3 {
@@ -22,15 +33,26 @@
     font-size: 1.5rem;
     margin-top: 25px;
     font-weight: bold;
+    animation: pop 0.8s ease;
 }
 
-/* Tabla */
+/* Animación de títulos */
+@keyframes pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    70% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+/* ===============================
+   TABLA DEL CARRITO
+================================ */
 #tabla-carrito {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 1rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    animation: fadeIn 1.2s ease;
 }
 
 #tabla-carrito th {
@@ -44,15 +66,20 @@
 #tabla-carrito td {
     padding: 12px;
     border-bottom: 1px solid #ddd;
+    transition: transform 0.3s ease, background 0.3s;
 }
 
+/* Zoom en filas */
 #tabla-carrito tr:hover {
     background: #f1fdf5;
+    transform: scale(1.02);
 }
 
-/* Botón comprar */
+/* ===============================
+   BOTONES
+================================ */
 #carrito button {
-    background: #28a745;
+    background: linear-gradient(45deg, #28a745, #5cd65c);
     color: white;
     font-size: 1rem;
     padding: 12px 30px;
@@ -60,22 +87,37 @@
     border-radius: 30px;
     cursor: pointer;
     margin-top: 15px;
-    transition: 0.3s;
     font-weight: bold;
+    transition: transform 0.3s, background 0.3s;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 8px #28a745; }
+    50% { box-shadow: 0 0 20px #28a745; }
+    100% { box-shadow: 0 0 8px #28a745; }
 }
 
 #carrito button:hover {
-    background: #218838;
-    transform: scale(1.05);
+    background: linear-gradient(45deg, #218838, #34d058);
+    transform: scale(1.1);
 }
 
-/*botones auxiliares*/
+/* ===============================
+   NAV
+================================ */
 nav {
     background: #ffcc80;
     padding: 15px;
     display: flex;
     justify-content: center;
     gap: 20px;
+    animation: slideDown 1s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 nav a {
@@ -83,7 +125,7 @@ nav a {
 }
 
 nav button {
-    background: #f10808;
+    background: linear-gradient(45deg, #f10808, #ff4d4d);
     color: white;
     border: none;
     padding: 12px 20px;
@@ -91,15 +133,130 @@ nav button {
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    transition: 0.3s;
+    transition: transform 0.3s, background 0.3s;
+    animation: glowNav 2s infinite;
+}
+
+@keyframes glowNav {
+    0% { box-shadow: 0 0 6px #f10808; }
+    50% { box-shadow: 0 0 18px #ffe600; }
+    100% { box-shadow: 0 0 6px #f10808; }
 }
 
 nav button:hover {
-    background: #a5e600;
-    transform: scale(1.05);
+    background: linear-gradient(45deg, #ff1a1a, #a5e600);
+    transform: scale(1.1) rotate(-3deg);
 }
 
-/*RESPONSIVE DESIGN*/
+/* ===============================
+   FORMULARIO DE PAGO
+================================ */
+#form-pago {
+    background: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    animation: aparecer 0.3s ease-in-out;
+    display: none; /* Oculto por defecto */
+}
+
+@keyframes aparecer {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+#form-pago h3 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#form-pago label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    margin: 6px 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#form-pago label:hover {
+    background: #e8f0fe;
+    border-color: #4285f4;
+}
+
+#form-pago input[type="radio"] {
+    accent-color: #4285f4;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+#form-pago button {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background: #4285f4;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#form-pago button:hover {
+    background: #2a64c7;
+    transform: scale(1.03);
+}
+
+/* ===============================
+   CAMPO DE NÚMERO DE PAGO
+================================ */
+#numero-pago {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px;
+    margin-top: 10px;
+    animation: aparecer 0.3s ease-in-out;
+}
+
+#numero-pago label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+#numero-pago input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+#numero-pago input[type="text"]:focus {
+    border-color: #4285f4;
+    box-shadow: 0 0 5px rgba(66,133,244,0.5);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
 
 /* Celulares pequeños (≤ 576px) */
 @media (max-width: 576px) {
@@ -109,17 +266,9 @@ nav button:hover {
         max-width: 100%;
     }
 
-    #carrito h2 {
-        font-size: 1.6rem;
-    }
-
-    #carrito h3 {
-        font-size: 1.2rem;
-    }
-
-    #tabla-carrito {
-        font-size: 0.85rem;
-    }
+    #carrito h2 { font-size: 1.6rem; }
+    #carrito h3 { font-size: 1.2rem; }
+    #tabla-carrito { font-size: 0.85rem; }
 
     #tabla-carrito th, 
     #tabla-carrito td {
@@ -141,6 +290,18 @@ nav button:hover {
         width: 100%;
         font-size: 14px;
     }
+
+    #form-pago {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    #form-pago h3 { font-size: 1rem; }
+    #form-pago label { font-size: 0.9rem; padding: 6px 10px; }
+    #form-pago button { font-size: 0.9rem; padding: 10px; }
+
+    #numero-pago label { font-size: 0.85rem; }
+    #numero-pago input[type="text"] { font-size: 0.9rem; padding: 8px; }
 }
 
 /* Tablets (577px – 768px) */
@@ -151,17 +312,9 @@ nav button:hover {
         max-width: 95%;
     }
 
-    #carrito h2 {
-        font-size: 2rem;
-    }
-
-    #carrito h3 {
-        font-size: 1.3rem;
-    }
-
-    #tabla-carrito {
-        font-size: 0.95rem;
-    }
+    #carrito h2 { font-size: 2rem; }
+    #carrito h3 { font-size: 1.3rem; }
+    #tabla-carrito { font-size: 0.95rem; }
 
     #tabla-carrito th, 
     #tabla-carrito td {
@@ -173,11 +326,18 @@ nav button:hover {
         padding: 10px 20px;
     }
 
-    nav {
-        flex-wrap: wrap;
+    nav { flex-wrap: wrap; }
+    nav button { font-size: 15px; }
+
+    #form-pago {
+        max-width: 80%;
+        padding: 18px;
     }
 
-    nav button {
-        font-size: 15px;
-    }
+    #form-pago h3 { font-size: 1.1rem; }
+    #form-pago label { font-size: 1rem; }
+    #form-pago button { font-size: 1rem; padding: 11px; }
+
+    #numero-pago label { font-size: 0.9rem; }
+    #numero-pago input[type="text"] { font-size: 0.95rem; padding: 9px; }
 }

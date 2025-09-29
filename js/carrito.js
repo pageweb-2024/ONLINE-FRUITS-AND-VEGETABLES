@@ -4,9 +4,10 @@ let carrito = [];
 // Agregar producto al carrito
 // ===============================
 function AgregarCarrito(nombre, precioKg, precioLb, cantidad = 1, unidad = 'kg') {
-    cantidad = parseFloat(cantidad);
+    cantidad = parseFloat(cantidad) || 1;
     let precio = (unidad === 'kg') ? precioKg : precioLb;
 
+    // Buscar si ya existe el producto con la misma unidad
     const index = carrito.findIndex(item => item.nombre === nombre && item.unidad === unidad);
 
     if (index !== -1) {
@@ -49,7 +50,7 @@ function guardarCarrito() {
 // ===============================
 function cargarCarrito() {
     const data = localStorage.getItem("carrito");
-    if (data) carrito = JSON.parse(data);
+    carrito = data ? JSON.parse(data) : [];
     actualizarCarrito();
 }
 
@@ -60,13 +61,14 @@ function actualizarCarrito() {
     const tbody = document.querySelector("#tabla-carrito tbody");
     const totalCarrito = document.getElementById("total-carrito");
 
-    if (!tbody && !totalCarrito) return; // Si la página no tiene tabla ni total, salir
+    if (!tbody && !totalCarrito) return;
 
     if (tbody) tbody.innerHTML = "";
     let total = 0;
 
     carrito.forEach((item, index) => {
         total += item.subtotal;
+
         if (tbody) {
             const fila = document.createElement("tr");
             fila.innerHTML = `
@@ -75,7 +77,7 @@ function actualizarCarrito() {
                 <td>${item.cantidad}</td>
                 <td>${item.unidad}</td>
                 <td>$${item.subtotal.toLocaleString()}</td>
-                <td><button onclick="eliminarProducto(${index})">❌</button></td>
+                <td><button class="btn-eliminar" onclick="eliminarProducto(${index})">❌</button></td>
             `;
             tbody.appendChild(fila);
         }
@@ -85,23 +87,44 @@ function actualizarCarrito() {
 }
 
 // ===============================
-// Comprar
+// Mostrar formulario de pago
 // ===============================
-function comprar() {
+function mostrarPago() {
     if (carrito.length === 0) {
-        alert("El carrito está vacío. Agrega productos primero.");
+        alert("⚠️ El carrito está vacío. Agrega productos primero.");
         return;
     }
-
-    const total = carrito.reduce((acc, item) => acc + item.subtotal, 0);
-    alert(`Gracias por tu compra. Total a pagar: $${total.toLocaleString()}`);
-
-    carrito = [];
-    guardarCarrito();
-    actualizarCarrito();
+    document.getElementById("form-pago").style.display = "block";
 }
 
 // ===============================
-// Inicializar al cargar la página
+// Confirmar compra con método de pago
 // ===============================
-document.addEventListener("DOMContentLoaded", cargarCarrito);
+document.addEventListener("DOMContentLoaded", () => {
+    cargarCarrito();
+
+    const pagoForm = document.getElementById("pagoForm");
+    if (pagoForm) {
+        pagoForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const metodo = document.querySelector("input[name='metodoPago']:checked");
+            if (!metodo) {
+                alert("⚠️ Por favor selecciona un método de pago.");
+                return;
+            }
+
+            const total = carrito.reduce((acc, item) => acc + item.subtotal, 0);
+
+            alert(`✅ Gracias por tu compra.\nTotal: $${total.toLocaleString()}\nMétodo: ${metodo.value}`);
+
+            // Vaciar carrito después de la compra
+            carrito = [];
+            guardarCarrito();
+            actualizarCarrito();
+
+            // Ocultar formulario
+            document.getElementById("form-pago").style.display = "none";
+        });
+    }
+});

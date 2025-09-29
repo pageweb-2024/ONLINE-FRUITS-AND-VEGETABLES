@@ -27,8 +27,42 @@
             </tbody>
         </table>
         <h3>Total: $<span id="total-carrito">0</span></h3>
-        <button onclick="comprar()">Comprar</button>
         
+        <!-- Botón para mostrar el formulario -->
+        <button onclick="mostrarPago()">Comprar</button>
+    
+        <!-- Formulario de Métodos de Pago -->
+        <div id="form-pago" style="display:none; margin-top:20px; text-align:left;">
+            <h3>Selecciona un método de pago</h3>
+            <form id="pagoForm">
+                <label>
+                    <input type="radio" name="metodoPago" value="efectivo" required> Efectivo
+                </label><br>
+                <label>
+                    <input type="radio" name="metodoPago" value="pse"> PSE
+                </label><br>
+                <label>
+                    <input type="radio" name="metodoPago" value="tarjeta"> Tarjeta de Crédito / Débito
+                </label><br>
+                <label>
+                    <input type="radio" name="metodoPago" value="nequi"> Nequi
+                </label><br>
+                <label>
+                    <input type="radio" name="metodoPago" value="daviplata"> Daviplata
+                </label><br>
+                <label>
+                    <input type="radio" name="metodoPago" value="otro"> Otro
+                </label><br><br>
+    
+                <!-- Campo para número de pago -->
+                <div id="numero-pago" style="display:none; margin-top:10px;">
+                    <label for="numCel">Número de quien paga:</label><br>
+                    <input type="text" id="numCel" name="numCel" placeholder="Ej: 3001234567">
+                </div><br>
+    
+                <button type="submit">Confirmar Pago</button>
+            </form>
+        </div>
     </section>
 
     <nav>
@@ -36,6 +70,11 @@
         <a href="../sections/frutas.html"><button>Frutas <i class="bi bi-apple"></i></button></a>
         <a href="../sections/verduras.html"><button>Verduras <i class="bi bi-basket"></i></button></a>
     </nav>
+
+    <audio id="musicaFondo" autoplay loop>
+        <source src="../musica/suave.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio en HTML5.
+    </audio>
 
     <script src="../js/carrito.js"></script>
 </body>
