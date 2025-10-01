@@ -1,171 +1,265 @@
 /* ================== ESTILOS BASE ================== */
-body {
-    font-family: Arial, Helvetica, sans-serif;
+html, body {
     margin: 0;
     padding: 0;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    font-family: Arial, sans-serif;
+    text-align: center;
     background: linear-gradient(270deg, #f8f9fa, #e9f7ef, #f8f9fa);
     background-size: 600% 600%;
     animation: backgroundMove 15s ease infinite;
     color: #333;
 }
 
-section {
-    padding: 4.5rem;
-    max-width: 1200px;
-    margin: auto;
+/* ==================== HEADER ====================*/
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;   /* más espacio interno */
+    background: #ffffff;
+    width: 110%;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+    animation: fadeInDown 1s ease forwards;
+    position: sticky;   /* se queda arriba */
+    top: 0;
+    z-index: 1000;
 }
 
-/* ================== TÍTULO ================== */
-.titulo {
-    text-align: center;
+/* Logo y nombre */
+.logo-nombre {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: fadeInLeft 1.2s ease forwards;
+}
+
+.logo-nombre img {
+    height: 70px;          /* logo más grande */
+    width: 70px;
+    border-radius: 50%;
+    border: 2px solid #4CAF50;
+}
+
+.logo-nombre h1 {
+    font-size: 28px;       /* título más grande */
+    margin: 0;
+    color: #2e7d32;        /* verde oscuro más elegante */
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Buscador */
+.buscador form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transform: translateX(30px);
+    animation: fadeInRight 1.2s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.buscador input {
+    padding: 12px 18px;        /* más grande */
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    width: 500px;              /* más ancho */
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.buscador input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px #4CAF50;
+}
+
+.buscador button {
+    padding: 12px 20px;        /* más grande */
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.buscador button:hover {
+    background: #45a049;
+    transform: scale(1.1);
+}
+
+/* ================== INTRO ================== */
+.intro {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+.intro .titulo {
+    font-size: 2rem;
     color: #28a745;
-    margin-bottom: 1.5rem;
-    font-size: 8rem;
+    margin-bottom: 1rem;
     opacity: 0;
     transform: translateY(-30px);
     animation: fadeInDown 1.2s ease forwards;
 }
-
-/* ================== TEXTO ================== */
-.texto {
+.intro p {
     font-size: 1.2rem;
-    line-height: 1.8;
+    line-height: 1.6;
     color: #333;
-    text-align: center;
-    max-width: 800px;
-    margin: auto;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1.5s ease forwards;
-    animation-delay: 0.6s;
+    animation-delay: 0.4s;
 }
 
-/* ================== BOTÓN ================== */
-.btn-container {
-    text-align: center;
-    margin-top: 30px;
+/* ================== MENÚ ================== */
+.menu ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; 
+    margin: 30px 0;
 }
-  
-.btn {
+
+.menu li {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+.menu li:nth-child(1) { animation-delay: 0.6s; }
+.menu li:nth-child(2) { animation-delay: 0.8s; }
+.menu li:nth-child(3) { animation-delay: 1s; }
+.menu li:nth-child(4) { animation-delay: 1.2s; }
+
+.menu li a {
+    position: relative;
     display: inline-block;
+    padding: 14px 28px;
     background: linear-gradient(135deg, #28a745, #218838);
-    color: #fff;
-    padding: 14px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
+    color: white;
     text-decoration: none;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
     transition: all 0.3s ease;
-    animation: pulse 2s infinite;
+    overflow: hidden;
 }
-  
-.btn:hover {
+
+.menu li a:hover {
     background: linear-gradient(135deg, #34ce57, #28a745);
     transform: scale(1.08);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
-    animation: glow 0.8s ease infinite alternate;
+    box-shadow: 0 0 12px #28a745, 0 0 25px #34ce57;
 }
 
-.btn i {
-    margin-left: 8px;
+/* Brillo al pasar el mouse */
+.menu li a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+.menu li a:hover::before {
+    left: 100%;
+}
+
+/* ================== FOOTER ================== */
+footer {
+    background: #2c5364;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+footer a {
+    color: #28a745;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* ================== ANIMACIONES ================== */
-@keyframes fadeInDown {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    }
-    50% {
-        transform: scale(1.07);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
-}
-
-@keyframes glow {
-    from {
-        box-shadow: 0 8px 18px rgba(40, 167, 69, 0.4);
-    }
-    to {
-        box-shadow: 0 12px 25px rgba(40, 167, 69, 0.7);
-    }
-}
-
 @keyframes backgroundMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
+@keyframes fadeInDown {
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+    to { opacity: 1; transform: translateX(0); }
+}
 
-/* ================== RESPONSIVE DESIGN ================== */
+/* ================== RESPONSIVE ================== */
 
 /* Celulares pequeños (≤ 576px) */
 @media (max-width: 576px) {
-    section {
-        padding: 1.5rem;
+    header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
     }
-
-    .titulo {
-        font-size: 2.5rem;
+    .logo-nombre {
+        flex-direction: column;
     }
-
-    .texto {
-        font-size: 1rem;
-        line-height: 1.4;
+    .logo-nombre h1 {
+        font-size: 1.5rem;
     }
-
-    .btn {
-        font-size: 14px;
-        padding: 10px 20px;
+    .buscador form {
+        flex-direction: column;
+        gap: 10px;
     }
-
-    table {
-        font-size: 0.85rem;
-        display: block;
-        overflow-x: auto; 
-        white-space: nowrap;
+    .buscador input {
+        width: 90%;
+    }
+    .menu ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .menu li a {
+        width: 80%;
+        margin: 0 auto;
+        font-size: 0.9rem;
+        padding: 12px 22px;
     }
 }
 
 /* Tablets (577px – 768px) */
 @media (min-width: 577px) and (max-width: 768px) {
-    section {
-        padding: 2rem;
+    .logo-nombre h1 {
+        font-size: 2rem;
     }
-
-    .titulo {
-        font-size: 3.5rem;
+    .buscador input {
+        width: 160px;
     }
-
-    .texto {
-        font-size: 1.1rem;
+    .menu ul {
+        gap: 18px;
     }
-
-    .btn {
-        font-size: 16px;
-        padding: 12px 24px;
-    }
-
-    table {
-        font-size: 0.95rem;
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
+    .menu li a {
+        font-size: 1rem;
+        padding: 14px 26px;
     }
 }

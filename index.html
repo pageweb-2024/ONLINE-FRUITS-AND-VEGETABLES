@@ -1,33 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
-    <title>ONLINE FRUITS AND VEGETABLES</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Frutas y Verduras</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 <body>
-
-    <section id="inicio">
-        <h2 class="titulo">Bienvenido</h2>
-        <p class="texto">Compra frutas y verduras frescas directamente desde nuestra tienda online. 
-            Selecciona tus productos, elige por kilos o libras y disfruta de una compra rápida y segura</p>
-    </section>
     
-    <div class="btn-container">
-        <a href="sections/menu.html" class="btn">
-          MENU<i class="bi bi-arrow-right"></i>
-        </a>
-    </div>
+    <header>
+        
+        <div class="logo-nombre">
+          <img src="img/logo.jpg" alt="logo">
+          <h1>TIENDA DE FRUTAS Y VERDURAS</h1>
+        </div>
+      
+        <div class="buscador">
+            <form id="buscador">
+                <input type="text" id="searchInput" 
+                placeholder="Escribe fruta o verdura para acceder a los productos">
+                <button type="submit">Buscar</button>
+            </form>             
+        </div>
+    </header>
+      
+  <section id="inicio" class="intro">
+    <h2 class="titulo">Bienvenido</h2>
+    <p class="texto">
+      Compra frutas y verduras frescas directamente desde nuestra tienda online.<br>
+      Selecciona tus productos, elige por kilos o libras y disfruta de una compra rápida y segura.
+    </p>
+    <p>
+      En este espacio podrás escoger qué comprar: frutas o verduras frescas, ¡tú decides!
+    </p>
+  </section>
 
-    <audio id="musicaFondo" autoplay loop>
-        <source src="musica/rock_musica.mp3" type="audio/mpeg">
-        Tu navegador no soporta audio en HTML5.
-      </audio>
- 
-    <script src="index.js"></script>
-    
+  <nav class="menu">
+    <ul>
+      <li><a href="sections/carrito.html">Carrito <i class="bi bi-cart4"></i></a></li>
+    </ul>
+  </nav>
+
+  <footer>
+    <p>&copy; 2025 Tienda de Frutas y Verduras</p>
+    <p><a href="#">Términos y Condiciones</a> | <a href="#">Política de Privacidad</a></p>
+    <p>Contacto: info@fruits.com | WhatsApp: 321 989 8231</p>
+    <p>DESARROLLADO POR: Jose David Bohorquez Perez</p>
+  </footer>
+
+  <script src="index.js"></script>
 </body>
 </html>

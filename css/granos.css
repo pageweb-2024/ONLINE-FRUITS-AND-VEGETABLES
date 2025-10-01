@@ -1,0 +1,75 @@
+/* --- Estilos generales --- */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra vertical */
+    align-items: center;     /* Centra horizontal */
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* Texto */
+p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Botón */
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    background-color: #28a745;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* --- Media Queries para hacerlo responsive --- */
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+    p {
+        font-size: 1.2rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    p {
+        font-size: 1.3rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 12px 22px;
+    }
+}
+
+/* Pantallas grandes */
+@media (min-width: 769px) {
+    p {
+        font-size: 1.8rem;
+    }
+
+    button {
+        font-size: 1.1rem;
+        padding: 14px 28px;
+    }
+}
