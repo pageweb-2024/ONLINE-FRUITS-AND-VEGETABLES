@@ -25,6 +25,9 @@ function AgregarCarrito(nombre, precioKg, precioLb, cantidad = 1, unidad = 'kg')
 
     guardarCarrito();
     actualizarCarrito();
+
+    // ✅ Mensaje de confirmación inmediato
+    alert(`${nombre} agregado al carrito ✅`);
 }
 
 // ===============================
@@ -61,6 +64,7 @@ function actualizarCarrito() {
     const tbody = document.querySelector("#tabla-carrito tbody");
     const totalCarrito = document.getElementById("total-carrito");
 
+    // Si no estamos en carrito.html, no hacer nada
     if (!tbody && !totalCarrito) return;
 
     if (tbody) tbody.innerHTML = "";
@@ -125,6 +129,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Ocultar formulario
             document.getElementById("form-pago").style.display = "none";
+        });
+    }
+
+    // Mostrar campo de número de pago si aplica
+    const radios = document.querySelectorAll("input[name='metodoPago']");
+    const numeroPagoDiv = document.getElementById("numero-pago");
+    if (radios.length > 0) {
+        radios.forEach(radio => {
+            radio.addEventListener("change", () => {
+                if (["nequi", "daviplata", "otro"].includes(radio.value)) {
+                    numeroPagoDiv.style.display = "block";
+                } else {
+                    numeroPagoDiv.style.display = "none";
+                }
+            });
         });
     }
 });
