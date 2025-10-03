@@ -16,7 +16,7 @@ function AgregarCarrito(nombre, precioKg, precioLb, cantidad = 1, unidad = 'kg')
     } else {
         carrito.push({
             nombre,
-            precio,
+            precio,  // precio según unidad
             cantidad,
             unidad,
             subtotal: precio * cantidad
@@ -64,23 +64,26 @@ function actualizarCarrito() {
     const tbody = document.querySelector("#tabla-carrito tbody");
     const totalCarrito = document.getElementById("total-carrito");
 
-    // ⚠️ Si estamos en otra página que no tiene tabla, solo actualizar storage
+    // ⚠️ Si estamos en otra página que no tiene tabla, no hacer nada
     if (!tbody && !totalCarrito) return;
 
     if (tbody) tbody.innerHTML = "";
     let total = 0;
 
     carrito.forEach((item, index) => {
-        total += item.subtotal;
+        // ✅ Asegurar que el precio no sea undefined
+        let precioUnitario = item.precio || 0;
+        let subtotal = precioUnitario * item.cantidad;
+        total += subtotal;
 
         if (tbody) {
             const fila = document.createElement("tr");
             fila.innerHTML = `
                 <td>${item.nombre}</td>
-                <td>$${item.precio.toLocaleString()} / ${item.unidad}</td>
+                <td>$${precioUnitario.toLocaleString()} / ${item.unidad}</td>
                 <td>${item.cantidad}</td>
                 <td>${item.unidad}</td>
-                <td>$${item.subtotal.toLocaleString()}</td>
+                <td>$${subtotal.toLocaleString()}</td>
                 <td><button class="btn-eliminar" onclick="eliminarProducto(${index})">❌</button></td>
             `;
             tbody.appendChild(fila);
@@ -119,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const total = carrito.reduce((acc, item) => acc + item.subtotal, 0);
+            const total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
 
             alert(`✅ Gracias por tu compra.\nTotal: $${total.toLocaleString()}\nMétodo: ${metodo.value}`);
 
@@ -149,3 +152,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
