@@ -64,7 +64,7 @@ function actualizarCarrito() {
     const tbody = document.querySelector("#tabla-carrito tbody");
     const totalCarrito = document.getElementById("total-carrito");
 
-    // Si no estamos en carrito.html, no hacer nada
+    // ⚠️ Si estamos en otra página que no tiene tabla, solo actualizar storage
     if (!tbody && !totalCarrito) return;
 
     if (tbody) tbody.innerHTML = "";
@@ -98,7 +98,8 @@ function mostrarPago() {
         alert("⚠️ El carrito está vacío. Agrega productos primero.");
         return;
     }
-    document.getElementById("form-pago").style.display = "block";
+    const formPago = document.getElementById("form-pago");
+    if (formPago) formPago.style.display = "block";
 }
 
 // ===============================
@@ -128,14 +129,15 @@ document.addEventListener("DOMContentLoaded", () => {
             actualizarCarrito();
 
             // Ocultar formulario
-            document.getElementById("form-pago").style.display = "none";
+            const formPago = document.getElementById("form-pago");
+            if (formPago) formPago.style.display = "none";
         });
     }
 
     // Mostrar campo de número de pago si aplica
     const radios = document.querySelectorAll("input[name='metodoPago']");
     const numeroPagoDiv = document.getElementById("numero-pago");
-    if (radios.length > 0) {
+    if (radios.length > 0 && numeroPagoDiv) {
         radios.forEach(radio => {
             radio.addEventListener("change", () => {
                 if (["nequi", "daviplata", "otro"].includes(radio.value)) {
