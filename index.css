@@ -144,47 +144,45 @@ header {
 }
 
 /* ================== MENÚ ================== */
+.menu {
+    width: 100%;
+    margin-top: 10px;
+    animation: fadeInUp 1s ease forwards;
+}
+
 .menu ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; 
-    margin: 30px 0;
+    flex-wrap: wrap;
+    gap: 20px;
 }
-
-.menu li {
-    opacity: 0;
-    animation: fadeInUp 1s ease forwards;
-}
-.menu li:nth-child(1) { animation-delay: 0.6s; }
-.menu li:nth-child(2) { animation-delay: 0.8s; }
-.menu li:nth-child(3) { animation-delay: 1s; }
-.menu li:nth-child(4) { animation-delay: 1.2s; }
 
 .menu li a {
     position: relative;
     display: inline-block;
-    padding: 14px 28px;
+    padding: 12px 25px;
     background: linear-gradient(135deg, #28a745, #218838);
     color: white;
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: 25px;
     font-weight: bold;
     font-size: 1rem;
     text-transform: uppercase;
     transition: all 0.3s ease;
-    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Efecto al pasar el mouse */
 .menu li a:hover {
     background: linear-gradient(135deg, #34ce57, #28a745);
     transform: scale(1.08);
-    box-shadow: 0 0 12px #28a745, 0 0 25px #34ce57;
+    box-shadow: 0 0 10px #28a745, 0 0 20px #34ce57;
 }
 
-/* Brillo al pasar el mouse */
+/* Brillo animado */
 .menu li a::before {
     content: "";
     position: absolute;
@@ -198,6 +196,13 @@ header {
 }
 .menu li a:hover::before {
     left: 100%;
+}
+
+/* Enlace activo */
+.menu li a.active {
+    background: #34ce57;
+    box-shadow: 0 0 12px #34ce57, 0 0 25px #28a745;
+    transform: scale(1.05);
 }
 
 /* ================== FOOTER ================== */
@@ -261,11 +266,12 @@ footer a:hover {
         flex-direction: column;
         gap: 15px;
     }
+
     .menu li a {
+        font-size: 0.9rem;
+        padding: 10px 20px;
         width: 80%;
         margin: 0 auto;
-        font-size: 0.9rem;
-        padding: 12px 22px;
     }
 }
 
