@@ -1,3 +1,7 @@
+/* ================== FUENTE Y ESTILO GLOBAL ================== */
+/* Importa una tipografía moderna, ligera y legible */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
 /* ================== ESTILOS BASE ================== */
 html, body {
     margin: 0;
@@ -6,12 +10,30 @@ html, body {
     display: flex;
     flex-direction: column; 
     align-items: center;    
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
     text-align: center;
+    color: #333;
     background: linear-gradient(270deg, #f8f9fa, #e9f7ef, #f8f9fa);
     background-size: 600% 600%;
-    animation: backgroundMove 15s ease infinite;
-    color: #333;
+    animation: backgroundMove 15s ease infinite;  
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+h1, h2, h3, a {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+p {
+    margin: 0 0 1rem 0;
+    color: #444;
+}
+
+body > * {
+    max-width: 1200px;
+    width: 100%;
 }
 
 /* ==================== HEADER ====================*/
