@@ -220,6 +220,25 @@ footer a:hover {
     text-decoration: underline;
 }
 
+.redes-sociales {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.redes-sociales a {
+    color: #28a745;
+    font-size: 1.8rem;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.redes-sociales a:hover {
+    color: #45a049;
+    transform: scale(1.2);
+}
+
+
 /* ================== ANIMACIONES ================== */
 @keyframes backgroundMove {
     0% { background-position: 0% 50%; }
