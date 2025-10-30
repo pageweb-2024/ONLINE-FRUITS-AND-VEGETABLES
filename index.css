@@ -36,57 +36,136 @@ body > * {
     width: 100%;
 }
 
-/* ==================== HEADER ====================*/
+/* ===================== HEADER ===================== */
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 40px;   /* más espacio interno */
+    flex-wrap: wrap;
+    padding: 12px 40px;
     background: #ffffff;
-    width: 110%;
-    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
-    animation: fadeInDown 1s ease forwards;
-    position: sticky;   /* se queda arriba */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-/* Logo y nombre */
+/* ---------- LOGO Y NOMBRE ---------- */
 .logo-nombre {
     display: flex;
     align-items: center;
     gap: 15px;
-    opacity: 0;
-    transform: translateX(-30px);
-    animation: fadeInLeft 1.2s ease forwards;
 }
 
 .logo-nombre img {
-    height: 70px;          /* logo más grande */
     width: 70px;
+    height: 70px;
     border-radius: 50%;
     border: 2px solid #4CAF50;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.logo-nombre img:hover {
+    transform: rotate(5deg) scale(1.05);
 }
 
 .logo-nombre h1 {
-    font-size: 28px;       /* título más grande */
-    margin: 0;
-    color: #2e7d32;        /* verde oscuro más elegante */
+    font-size: 1.6rem;
+    color: #2e7d32;
     font-weight: bold;
     letter-spacing: 1px;
+    margin: 0;
 }
 
-/* Buscador */
+/* ---------- MENÚ ---------- */
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.menu ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu button {
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.menu a {
+    display: inline-block;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #4CAF50, #2e7d32);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.menu a:hover {
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* ---------- BUSCADOR ---------- */
+.buscador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
 .buscador form {
     display: flex;
     align-items: center;
     gap: 10px;
-    opacity: 0;
-    transform: translateX(30px);
-    animation: fadeInRight 1.2s ease forwards;
-    animation-delay: 0.3s;
 }
 
+.buscador input {
+    padding: 10px 16px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    font-size: 1rem;
+    width: 250px;
+    transition: all 0.3s ease;
+}
+
+.buscador input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76,175,80,0.4);
+}
+
+.buscador button {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.buscador button:hover {
+    background: #43a047;
+    transform: scale(1.1);
+}
+
+/* ---------- ETIQUETA INVISIBLE PARA ACCESIBILIDAD ---------- */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -96,123 +175,6 @@ header {
     overflow: hidden;
     clip: rect(0,0,0,0);
     border: 0;
-}
-
-.buscador input {
-    padding: 12px 18px;        /* más grande */
-    border: 2px solid #ccc;
-    border-radius: 25px;
-    width: 500px;              /* más ancho */
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.buscador input:focus {
-    outline: none;
-    border-color: #4CAF50;
-    box-shadow: 0 0 10px #4CAF50;
-}
-
-.buscador button {
-    padding: 12px 20px;        /* más grande */
-    background: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: transform 0.2s ease, background 0.3s ease;
-}
-
-.buscador button:hover {
-    background: #45a049;
-    transform: scale(1.1);
-}
-
-/* ================== INTRO ================== */
-.intro {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 15px;
-}
-.intro .titulo {
-    font-size: 2rem;
-    color: #28a745;
-    margin-bottom: 1rem;
-    opacity: 0;
-    transform: translateY(-30px);
-    animation: fadeInDown 1.2s ease forwards;
-}
-.intro p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #333;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1.5s ease forwards;
-    animation-delay: 0.4s;
-}
-
-/* ================== MENÚ ================== */
-.menu {
-    width: 100%;
-    margin-top: 10px;
-    animation: fadeInUp 1s ease forwards;
-}
-
-.menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.menu li a {
-    display: inline-block;
-    padding: 12px 25px;
-    background: linear-gradient(135deg, #28a745, #218838);
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-    font-size: 1rem;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Efecto al pasar el mouse */
-.menu li a:hover {
-    background: linear-gradient(135deg, #34ce57, #28a745);
-    transform: scale(1.08);
-    box-shadow: 0 0 10px #28a745, 0 0 20px #34ce57;
-}
-
-/* Brillo animado */
-.menu li a::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: skewX(-25deg);
-    transition: 0.5s;
-}
-.menu li a:hover::before {
-    left: 100%;
-}
-
-/* Enlace activo */
-.menu li a.active {
-    background: #34ce57;
-    box-shadow: 0 0 12px #34ce57, 0 0 25px #28a745;
-    transform: scale(1.05);
 }
 
 /* ================== FOOTER ================== */
@@ -249,6 +211,63 @@ footer a:hover {
     transform: scale(1.2);
 }
 
+/* ================== SECCIÓN INTRO ================== */
+.intro {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    text-align: center;
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+/* ---------- TÍTULOS PRINCIPALES ---------- */
+.intro h2 {
+    font-size: 2rem;
+    color: #2e7d32;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    position: relative;
+}
+
+/* Línea decorativa bajo el título */
+.intro h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #4CAF50, #2e7d32);
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* ---------- SUBTÍTULOS ---------- */
+.intro h3 {
+    font-size: 1.4rem;
+    color: #388e3c;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* ---------- PÁRRAFOS ---------- */
+.intro p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+    margin: 0 auto 15px;
+    max-width: 700px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto sutil al pasar el mouse sobre los textos */
+.intro p:hover {
+    transform: scale(1.02);
+    color: #1b5e20;
+}
 
 /* ================== ANIMACIONES ================== */
 @keyframes backgroundMove {
@@ -275,32 +294,34 @@ footer a:hover {
 @media (max-width: 576px) {
     header {
         flex-direction: column;
-        gap: 10px;
-        text-align: center;
+        align-items: center;
+        padding: 20px;
     }
+
     .logo-nombre {
         flex-direction: column;
+        text-align: center;
     }
-    .logo-nombre h1 {
-        font-size: 1.5rem;
-    }
-    .buscador form {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .buscador input {
-        width: 90%;
-    }
+
     .menu ul {
         flex-direction: column;
         gap: 15px;
+        margin-top: 10px;
     }
 
-    .menu li a {
-        font-size: 0.9rem;
-        padding: 10px 20px;
+    .menu a {
         width: 80%;
-        margin: 0 auto;
+        text-align: center;
+    }
+
+    .buscador form {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .buscador input {
+        width: 90%;
     }
 }
 
